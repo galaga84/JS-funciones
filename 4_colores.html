@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Colores</title>
+  </head>
+  <body>
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>4 Colores</title>
+      </head>
+      <body>
+        <div
+          id="div1"
+          style="width: 200px; height: 200px; background-color: blue"
+        ></div>
+        <div
+          id="div2"
+          style="width: 200px; height: 200px; background-color: red"
+        ></div>
+        <div
+          id="div3"
+          style="width: 200px; height: 200px; background-color: green"
+        ></div>
+        <div
+          id="div4"
+          style="width: 200px; height: 200px; background-color: yellow"
+        ></div>
+
+        <div
+          id="key"
+          style="
+            width: 200px;
+            height: 200px;
+            background-color: white;
+            border: 1px solid black;
+            margin-top: 10px;
+          "
+        ></div>
+
+        <script>
+          let colorMap = {
+            a: "pink",
+            s: "orange",
+            d: "skyblue",
+            q: "purple",
+            w: "gray",
+            e: "brown",
+          };
+
+          function changeColorToBlack(event) {
+            event.target.style.backgroundColor = "black";
+          }
+
+          document
+            .getElementById("div1")
+            .addEventListener("click", changeColorToBlack);
+          document
+            .getElementById("div2")
+            .addEventListener("click", changeColorToBlack);
+          document
+            .getElementById("div3")
+            .addEventListener("click", changeColorToBlack);
+          document
+            .getElementById("div4")
+            .addEventListener("click", changeColorToBlack);
+
+          document.addEventListener("keydown", function (event) {
+            let key = event.key.toLowerCase();
+            let color = colorMap[key];
+            if (color) {
+              if (key === "a" || key === "s" || key === "d") {
+                document.getElementById("key").style.backgroundColor = color;
+              } else if (key === "q" || key === "w" || key === "e") {
+                let newDiv = document.createElement("div");
+                newDiv.style.width = "200px";
+                newDiv.style.height = "200px";
+                newDiv.style.backgroundColor = color;
+                newDiv.style.border = "1px solid black";
+                newDiv.style.marginTop = "10px";
+                document.body.appendChild(newDiv);
+              }
+            }
+          });
+        </script>
+      </body>
+    </html>
+  </body>
+</html>
